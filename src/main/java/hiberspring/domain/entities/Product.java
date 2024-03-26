@@ -9,7 +9,7 @@ public class Product extends BaseEntity{
     private String name;
     @Column(name = "clients")
     private Integer clients;
-
+    @ManyToOne //(cascade = {CascadeType.MERGE},fetch = FetchType.EAGER)
     private Branch branch;
 
     public Product() {
@@ -30,7 +30,7 @@ public class Product extends BaseEntity{
     public void setClients(Integer clients) {
         this.clients = clients;
     }
-    @ManyToOne(cascade = {CascadeType.MERGE},fetch = FetchType.EAGER)
+
     public Branch getBranch() {
         return branch;
     }

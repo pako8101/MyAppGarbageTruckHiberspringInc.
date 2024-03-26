@@ -13,10 +13,10 @@ public class Branch extends BaseEntity{
     @Column(name = "name",nullable = false,unique = true)
     private String name;
 
-    @ManyToOne(cascade = {CascadeType.MERGE})
+    @ManyToOne (cascade = {CascadeType.MERGE})
     private Town town;
 
-
+    @OneToMany (mappedBy = "branch",fetch = FetchType.EAGER)
     private Set<Product> products;
 
 
@@ -38,7 +38,7 @@ public class Branch extends BaseEntity{
     public void setTown(Town town) {
         this.town = town;
     }
-    @OneToMany(mappedBy = "branch",fetch = FetchType.EAGER)
+
     public Set<Product> getProducts() {
         return products;
     }
