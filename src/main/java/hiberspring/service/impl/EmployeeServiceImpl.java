@@ -64,9 +64,8 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .forEach(employeeSeedDto -> {
                     if (this.validationUtil.isValid(employeeSeedDto)){
                         if (this.employeeRepository
-                                .findByFirstNameAndLastNameAndPosition(employeeSeedDto.getFirstName(),
-                                        employeeSeedDto.getLastname(),
-                                        employeeSeedDto.getPosition())==null){
+                                .findByFirstNameAndLastName(employeeSeedDto.getFirstName(),
+                                        employeeSeedDto.getLastname())==null){
                             Employee employee = this.modelMapper.map(employeeSeedDto,Employee.class);
 
                             Branch branch = this.branchService.getBranchByName(employeeSeedDto.getBranch());

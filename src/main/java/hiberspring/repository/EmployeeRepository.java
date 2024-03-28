@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-    Employee findByFirstNameAndLastNameAndPosition(String firstName, String lastName, String position);
+    Employee findByFirstNameAndLastName(String firstName, String lastName);
 
     @Query("select e from  Employee  e where e.branch.products.size > 0 " +
     "order by concat(e.firstName, ' ', e.lastName),length(e.Position)desc ")
